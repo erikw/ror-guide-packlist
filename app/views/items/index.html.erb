@@ -1,0 +1,14 @@
+<h1>Items</h1>
+
+There are <%= Item.public_count %> public items.
+<ul>
+  <% @items.each do |item| %>
+    <% unless item.archived? %>
+      <li>
+        <%= link_to item.name, item %> : <%= item.description %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "New Item", new_item_path %>
